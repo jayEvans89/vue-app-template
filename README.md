@@ -25,7 +25,7 @@ The project is linted with ESLint and Stylelint
 
 Uses Vue Test Utils and jest with a coverage set to 90%
 
-## Running the projects
+## Running the project
 
 - `npm run dev` - Runs the project in development mode with hot module reloading.
 - `npm run build` - Builds the project ready for development, and outputs the build files to a dist directory.
