@@ -20,3 +20,14 @@ Since TypeScript cannot handle type information for `.vue` imports, they are shi
 ## Linting
 
 The project is linted with ESLint and Stylelint
+
+## Testing
+
+Uses Vue Test Utils and jest with a coverage set to 90%
+
+## Running the projects
+
+- `npm run dev` - Runs the project in development mode with hot module reloading.
+- `npm run build` - Builds the project ready for development, and outputs the build files to a dist directory.
+- `npm run test` - Runs the unit tests.
+- `npm run coverage` - Run the unit tests and build a coverage report which can be found in the coverage folder.
