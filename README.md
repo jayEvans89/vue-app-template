@@ -12,10 +12,10 @@ Since TypeScript cannot handle type information for `.vue` imports, they are shi
 
 ## Other included plugins
 
-- Axios for http requests
-- Pinia for state management
-- Vuelidate for form validation
-- Bootstrap 5 for modals, popups, etc
+- [Axios](https://axios-http.com/) for http requests
+- [Pinia](https://pinia.esm.dev/) for state management
+- [Vuelidate](https://vuelidate.js.org/) for form validation
+- [Bootstrap](https://getbootstrap.com/docs/5.0/getting-started/introduction/) 5 for modals, popups, etc
 
 ## Linting
 
