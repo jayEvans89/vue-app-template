@@ -1,0 +1,12 @@
+{
+  "recommendations": [
+    "johnsoncodehk.volar",
+    "dbaeumer.vscode-eslint",
+    "stylelint.vscode-stylelint",
+    "johnsoncodehk.volar",
+    "EditorConfig.EditorConfig",
+    "formulahendry.auto-close-tag",
+    "formulahendry.auto-rename-tag",
+    "kamikillerto.vscode-colorize"
+  ]
+}
