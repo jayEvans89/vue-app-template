@@ -1,8 +1,18 @@
 import HomePage from '@/modules/home/HomePage.vue'
-import { mount } from '@vue/test-utils'
+import { shallowMount } from '@vue/test-utils'
 
 test('value', () => {
-  const wrapper = mount(HomePage)
+  const wrapper = shallowMount(HomePage, { props: { test: 'hello' } })
 
-  expect(wrapper.vm.hello).toEqual('Hello')
+  expect(wrapper.vm.test).toEqual('hello')
+})
+
+test('check function', () => {
+  const wrapper = shallowMount(HomePage, {
+    props: {
+      test: 'hello'
+    }
+  })
+
+  expect(wrapper.vm.returnString('hello')).toReturnWith('hello')
 })
