@@ -15,6 +15,21 @@ const routes = [
 
 const router = createRouter({
   history: createWebHistory(),
+  scrollBehavior(to, from, savedPosition) {
+    return new Promise((resolve) => {
+      setTimeout(() => {
+        if (savedPosition) {
+          resolve({
+            top: savedPosition.top
+          })
+        } else {
+          resolve({
+            top: 0
+          })
+        }
+      }, 500)
+    })
+  },
   routes
 })
 
