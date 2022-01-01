@@ -18,5 +18,5 @@ test('check function', () => {
     }
   })
 
-  expect(wrapper.vm.testMethod()).toReturnWith('testMethod')
+  expect(wrapper.vm.testMethod()).toEqual('testMethod')
 })

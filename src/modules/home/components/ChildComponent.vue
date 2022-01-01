@@ -1,7 +1,9 @@
 
 <template>
   <h1>Child Component {{ title }}</h1>
-  <p>{{ optional }}</p>
+  <p @click="testMethod">
+    {{ optional }}
+  </p>
 </template>
 
 <script lang="ts" setup>
@@ -9,7 +11,8 @@ interface Props {
   title: string;
   optional?: string
 }
-const props = withDefaults(defineProps<Props>(), {
+
+withDefaults(defineProps<Props>(), {
   optional: 'defaultOptional'
 })
 
