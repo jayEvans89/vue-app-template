@@ -2,7 +2,10 @@
 <template>
   <h1>{{ computedVar }} Home Page</h1>
 
-  <child-component title="child component" optional="optional Prop" />
+  <child-component
+    title="child component"
+    optional="optional Prop"
+  />
 </template>
 
 <script lang="ts">
