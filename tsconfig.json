@@ -16,5 +16,8 @@
       "@styles": ["src/styles"]
     }
   },
+  "vueCompilerOptions": {
+    "experimentalExposeScriptSetupContext": true
+  },
   "include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "src/**/*.vue"]
 }

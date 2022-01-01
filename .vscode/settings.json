@@ -9,4 +9,8 @@
   ],
   "scssFormatter.singleQuote": true,
   "files.insertFinalNewline": true,
+  "eslint.format.enable": true,
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
+  }
 }
