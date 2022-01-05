@@ -1,30 +1,18 @@
 
 <template>
-  <nav>
-    <router-link to="/">
-      Home
-    </router-link>
-    <router-link to="/about">
-      About
-    </router-link>
-  </nav>
-  <img
-    class="logo"
-    alt="Vue logo"
-    src="@/assets/logo.png"
-  >
+  <nav-component />
+
+  <img class="logo" alt="Vue logo" src="@/assets/logo.png">
+
   <router-view v-slot="{ Component }">
-    <transition
-      name="fade"
-      mode="out-in"
-    >
+    <transition name="fade" mode="out-in">
       <component :is="Component" />
     </transition>
   </router-view>
 </template>
 
 <script setup lang="ts">
-console.log('app')
+import NavComponent from '@/core/components/NavComponent.vue'
 </script>
 
 <style lang="scss">
