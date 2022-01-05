@@ -31,3 +31,19 @@ Uses Vue Test Utils and jest with a coverage set to 90%
 - `npm run build` - Builds the project ready for production, and outputs the build files to a dist directory.
 - `npm run test` - Runs the unit tests.
 - `npm run coverage` - Run the unit tests and build a coverage report which can be found in the coverage folder.
+
+## Folder structure
+
+All the app code is contained within the `src` folder. This is then split up into the following folders:
+
+- Assets: Any images, icons etc
+- Core: Core app items such as router, global stores, components (header, footer) and the main App.vue
+- Modules: Self contained parts of the app/pages. For example if the app has a **Home** page, there should be a **home** folder within modules.
+  Then within the **home** modules folder is should be broken down into the following.
+  - The main view ie `home.vue`
+  - A components folder
+  - A store folder for any stores that are specific to that part of the app
+- Services: Any http services
+- Styles: Global styles
+- Types: Any types/interfaces
+- main.ts: The app entry and initialization
