@@ -1,8 +1,14 @@
 import { defineStore } from 'pinia'
 
-export const useRootStore = defineStore('root', {
+export const useRootStore = defineStore('rootStore', {
   state: () => {
-    return {}
+    return {
+      name: ''
+    }
   },
-  actions: {}
+  actions: {
+    setName(name: string) {
+      this.name = name
+    }
+  }
 })
