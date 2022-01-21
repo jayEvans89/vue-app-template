@@ -1,6 +1,8 @@
 
 <template>
-  <h1>{{ computedVar }} Home Page</h1>
+  <h1 data-test-id="title">
+    {{ computedVar }}
+  </h1>
 
   <child-component
     title="child component"
@@ -18,21 +20,16 @@ export default defineComponent({
   props: {
     test: {
       type: String,
-      required: true
+      default: 'Home parent'
     }
   },
-  setup() {
+  setup(prop) {
     const computedVar = computed(() => {
-      return '123'
+      return `${prop.test} Home Page Title`
     })
 
-    function returnString(string: string) {
-      return string
-    }
-
     return {
-      computedVar,
-      returnString
+      computedVar
     }
   }
 })

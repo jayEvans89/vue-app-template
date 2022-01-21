@@ -1,18 +1,44 @@
 import ChildComponent from '@/modules/home/components/ChildComponent.vue'
-import { shallowMount } from '@vue/test-utils'
+import { enableAutoUnmount, shallowMount, VueWrapper } from '@vue/test-utils'
+import { nextTick } from 'vue'
+
+let wrapper: VueWrapper<any>
+function createComponent(options?: any) {
+  wrapper = shallowMount(ChildComponent, {
+    ...options
+  })
+}
+
+const findTitle = () => wrapper.find('[data-test-id="title"')
+const findTestButton = () => wrapper.find('[data-test-id="testButton"')
+const findCount = () => wrapper.find('[data-test-id="count"]')
+
+enableAutoUnmount(afterEach)
 
 describe('child component', () => {
-  const wrapper = shallowMount(ChildComponent, {
-    props: {
-      title: 'hello'
-    }
+  it('should show the title', () => {
+    createComponent({
+      props: {
+        title: 'title'
+      }
+    })
+
+    expect(findTitle().text()).toBe('Child Component title')
   })
 
-  it('value', () => {
-    expect(wrapper.vm.title).toEqual('hello')
+  it('Increases the count on button click', async () => {
+    createComponent()
+
+    expect(findCount().text()).toBe('0')
+
+    findTestButton().trigger('click')
+    await nextTick()
+
+    expect(findCount().text()).toBe('1')
   })
 
-  it('check function', () => {
-    expect(wrapper.vm.testMethod()).toEqual('testMethod')
+  it('Show optional prop for the button text', async () => {
+    createComponent()
+    expect(findTestButton().text()).toBe('defaultOptional')
   })
 })

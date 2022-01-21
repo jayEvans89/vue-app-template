@@ -20,6 +20,7 @@
     "vuelidate": "^0.7.6"
   },
   "devDependencies": {
+    "@types/bootstrap": "^5.1.8",
     "@types/jest": "^27.0.3",
     "@types/node": "^16.11.11",
     "@types/vuelidate": "^0.7.15",
@@ -86,8 +87,17 @@
             "max": 1
           }
         }
-      ]
-    }
+      ],
+      "func-call-spacing": "off"
+    },
+    "overrides": [
+      {
+        "files": ["**/*.spec.ts"],
+        "rules": {
+          "@typescript-eslint/no-explicit-any": ["off"]
+        }
+      }
+    ]
   },
   "stylelint": {
     "extends": [

@@ -1,14 +1,25 @@
 import HomePage from '@/modules/home/HomePage.vue'
-import { shallowMount } from '@vue/test-utils'
+import { enableAutoUnmount, shallowMount, VueWrapper } from '@vue/test-utils'
+
+let wrapper: VueWrapper<any>
+function createComponent(options?: any) {
+  wrapper = shallowMount(HomePage, {
+    ...options
+  })
+}
+
+enableAutoUnmount(afterEach)
+
+const findTitle = () => wrapper.find('[data-test-id="title"]')
 
 describe('Home page component', () => {
-  const wrapper = shallowMount(HomePage, {
-    props: {
-      test: 'hello'
-    }
-  })
-
   it('returnFunction should return `hello`', () => {
-    expect(wrapper.vm.returnString('hello')).toEqual('hello')
+    createComponent({
+      props: {
+        test: 'title'
+      }
+    })
+
+    expect(findTitle().text()).toBe('title Home Page Title')
   })
 })
