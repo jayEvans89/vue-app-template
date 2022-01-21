@@ -1,23 +1,19 @@
 import ChildComponent from '@/modules/home/components/ChildComponent.vue'
-import { enableAutoUnmount, shallowMount, VueWrapper } from '@vue/test-utils'
+import { enableAutoUnmount, VueWrapper } from '@vue/test-utils'
 import { nextTick } from 'vue'
 
+import { createNewWrapper } from '../../../helpers/createWrapper'
+
 let wrapper: VueWrapper<any>
-function createComponent(options?: any) {
-  wrapper = shallowMount(ChildComponent, {
-    ...options
-  })
-}
+enableAutoUnmount(afterEach)
 
 const findTitle = () => wrapper.find('[data-test-id="title"')
 const findTestButton = () => wrapper.find('[data-test-id="testButton"')
 const findCount = () => wrapper.find('[data-test-id="count"]')
 
-enableAutoUnmount(afterEach)
-
 describe('child component', () => {
   it('should show the title', () => {
-    createComponent({
+    wrapper = createNewWrapper(ChildComponent, {
       props: {
         title: 'title'
       }
@@ -27,7 +23,7 @@ describe('child component', () => {
   })
 
   it('Increases the count on button click', async () => {
-    createComponent()
+    wrapper = createNewWrapper(ChildComponent)
 
     expect(findCount().text()).toBe('0')
 
@@ -38,7 +34,7 @@ describe('child component', () => {
   })
 
   it('Show optional prop for the button text', async () => {
-    createComponent()
+    wrapper = createNewWrapper(ChildComponent)
     expect(findTestButton().text()).toBe('defaultOptional')
   })
 })

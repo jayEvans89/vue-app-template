@@ -1,6 +1,8 @@
 
 <template>
-  <h1 data-test-id="title">Child Component {{ title }}</h1>
+  <h1 data-test-id="title">
+    Child Component {{ title }}
+  </h1>
   <p data-test-id="testButton" @click="testMethod">
     {{ optional }}
   </p>
