@@ -1,6 +1,11 @@
 
 <template>
-  <div class="modal fade" :modal-id="modalId">
+  <div
+    :id="modalId"
+    ref="modalContainer"
+    class="modal fade"
+    data-test-id="modal"
+  >
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-body">
@@ -12,6 +17,10 @@
 </template>
 
 <script lang="ts" setup>
+import { Modal } from 'bootstrap'
+import { onMounted, ref } from 'vue'
+import modalMounted from './modalMounted'
+
 interface Props {
   /**
    * The id of the modal
@@ -39,7 +48,17 @@ withDefaults(defineProps<Props>(), {
   static: null,
   modalSize: 'lg'
 })
-</script>
 
-<style lang="scss">
-</style>
+const emits = defineEmits<{
+  (e: 'modal-mounted', modal: Modal, element: Element | null): void
+}>()
+
+const modalContainer = ref<Element | null>(null)
+const { onModalMounted } = modalMounted(emits, modalContainer)
+
+onMounted(() => {
+  const modal = new Modal(modalContainer.value as Element)
+  onModalMounted(modal)
+})
+
+</script>
