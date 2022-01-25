@@ -4,7 +4,7 @@ const http = axios.create({
   baseURL: ''
 })
 
-http.interceptors.request.use(async (req): Promise<AxiosRequestConfig<any>> => {
+http.interceptors.request.use(async (req): Promise<AxiosRequestConfig<any>> => { // eslint-disable-line @typescript-eslint/no-explicit-any
   console.log(`request: ${req.url}`)
   return req
 })

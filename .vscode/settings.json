@@ -3,7 +3,6 @@
   "typescriptHero.imports.insertSemicolons": false,
   "typescriptHero.imports.organizeOnSave": true,
   "stylelint.validate": [
-    "less",
     "scss",
     "vue"
   ],
@@ -11,6 +10,10 @@
   "files.insertFinalNewline": true,
   "eslint.format.enable": true,
   "editor.codeActionsOnSave": {
-    "source.fixAll.eslint": true
-  }
+    "source.fixAll.eslint": true,
+    "source.fixAll.stylelint": true
+  },
+  "cSpell.words": [
+    "singleline"
+  ]
 }

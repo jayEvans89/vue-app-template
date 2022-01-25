@@ -37,9 +37,9 @@ Uses Vue Test Utils and jest with a coverage set to 90%
 All the app code is contained within the `src` folder. This is then split up into the following folders:
 
 - Assets: Any images, icons etc
-- Core: Core app items such as router, global stores, components (header, footer) and the main App.vue
+- Core: Core app items such as router, global stores, components (header, footer etc) and the main App.vue
 - Modules: Self contained parts of the app/pages. For example if the app has a **Home** page, there should be a **home** folder within modules.
-  Then within the **home** modules folder is should be broken down into the following.
+  Then within the **home** modules folder it should be broken down into the following.
   - The main view ie `home.vue`
   - A components folder
   - A store folder for any stores that are specific to that part of the app
