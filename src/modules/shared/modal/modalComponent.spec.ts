@@ -1,5 +1,6 @@
-import ModalComponent from '@/modules/shared/modal/ModalComponent.vue'
 import { enableAutoUnmount, shallowMount } from '@vue/test-utils'
+
+import ModalComponent from './ModalComponent.vue'
 
 describe('modal component', () => {
   enableAutoUnmount(afterEach)

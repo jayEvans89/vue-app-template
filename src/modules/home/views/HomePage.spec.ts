@@ -1,4 +1,4 @@
-import HomePage from '@/modules/home/HomePage.vue'
+import HomePage from '@/modules/home/views/HomePage.vue'
 import { enableAutoUnmount, shallowMount, VueWrapper } from '@vue/test-utils'
 
 let wrapper: VueWrapper<any>
