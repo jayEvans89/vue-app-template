@@ -1,36 +1,30 @@
 
 <template>
-  <h1 data-test-id="title">
-    {{ computedVar }}
-  </h1>
+  <div>
+    <h1 data-test-id="title">
+      {{ computedVar }}
+    </h1>
 
-  <child-component
-    title="child component"
-    optional="optional Prop"
-  />
+    <child-component
+      title="child component"
+      optional="optional Prop"
+    />
+  </div>
 </template>
 
-<script lang="ts">
+<script lang="ts" setup>
 import ChildComponent from '@/modules/home/components/ChildComponent.vue'
-import { defineComponent, computed } from 'vue'
-export default defineComponent({
-  components: {
-    ChildComponent
-  },
-  props: {
-    test: {
-      type: String,
-      default: 'Home parent'
-    }
-  },
-  setup(prop) {
-    const computedVar = computed(() => {
-      return `${prop.test} Home Page Title`
-    })
+import { computed } from 'vue'
 
-    return {
-      computedVar
-    }
-  }
+interface Props {
+  test?: string;
+}
+
+const props = withDefaults(defineProps<Props>(), {
+  test: 'Home Parent'
+})
+
+const computedVar = computed(() => {
+  return `${props.test} Home Page Title`
 })
 </script>
